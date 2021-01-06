@@ -8,12 +8,12 @@ class PrototypesController < ApplicationController
   end
 
   def new
-    @prototype = Prototype.new
+    @prototypes = Prototype.new
   end
 
   def create
-    @prototype = Prototype.new(prototype_params)
-    if @prototype.save
+    @prototypes = Prototype.new(prototype_params)
+    if @prototypes.save
       redirect_to root_path
     else
       render :new
@@ -26,7 +26,7 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    if @prototype.destroy
+    if @prototypes.destroy
           redirect_to root_path
     else
           redirect_to root_path
@@ -37,8 +37,8 @@ class PrototypesController < ApplicationController
   end
   
   def update
-    if @prototype.update(prototype_params)
-      redirect_to prototype_path(@prototype)
+    if @prototypes.update(prototype_params)
+         redirect_to prototype_path(@prototypes)
     else
       render :edit
     end
